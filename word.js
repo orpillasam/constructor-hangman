@@ -26,10 +26,10 @@ function Word (word) {
 
 
   this.checkLetter = function (guessedLetter) {
-    let whatToReturn = 0
-    this.letters.forEach(function (lttr) {
-      if (lttr.letter === guessedLetter) {
-        lttr.appear = true
+    let whatToReturn = 0;
+    this.letters.forEach(function (ltr) {
+      if (ltr.letter === guessedLetter) {
+        ltr.appear = true;
         whatToReturn++;
       };
     });
@@ -38,15 +38,15 @@ function Word (word) {
 
 
   this.wordShow = function () {
-    let display = ''
-    selection.letters.forEach(function (lttr) {
-      let currentLetter = lttr.letterShow()
-      display += currentLetter
-    })
-    return display
-  }
-}
+    let display = '';
+    selection.letters.forEach(function (ltr) {
+      let currentLetter = ltr.letterShow();
+      display += currentLetter;
+    });
+    return display;
+  };
+};
 
-var wordBank = ['PUNISHER', 'DAREDEVIL', 'JESSICA JONES', 'LUKE CAGE', 'IRON FIST', 'DEFENDERS', 'ELEKTRA', 'KINGPIN']
+var wordBank = ['PUNISHER', 'DAREDEVIL', 'JESSICA JONES', 'LUKE CAGE', 'IRON FIST', 'DEFENDERS', 'ELEKTRA', 'KINGPIN'];
 
 module.exports = Word;
