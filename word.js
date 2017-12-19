@@ -46,4 +46,7 @@ function Word (word) {
     return display
   }
 }
+
+var wordBank = ['PUNISHER', 'DAREDEVIL', 'JESSICA JONES', 'LUKE CAGE', 'IRON FIST', 'DEFENDERS', 'ELEKTRA', 'KINGPIN']
+
 module.exports = Word;
