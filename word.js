@@ -1,10 +1,27 @@
 var Letter = require('./letter.js')
 
+var wordBank = ['PUNISHER', 'DAREDEVIL', 'JESSICA JONES', 'LUKE CAGE', 'IRON FIST', 'DEFENDERS', 'ELEKTRA', 'KINGPIN'];
+
 function Word (word) {
   // var selection = this;
   this.word = word;
   this.letters = [];
   this.wordFinished = false;
+
+
+  this.randomWord = function(){
+    let randomNumber = Math.floor(Math.random() * wordBank.length);
+    this.currentWord = wordBank[randomNumber];
+    this.lettersLength = currentWord.length;
+    return this.currentWord;
+  }
+
+  this.splitWord = function() {
+    this.lettersArray = this.split(""); 
+    return this.lettersArray;
+  }
+
+
 
 
   this.getLetters = function () {
@@ -26,7 +43,7 @@ function Word (word) {
 
 
   this.checkLetter = function (guessedLetter) {
-    let whatToReturn = 0;
+    let whatToReturn = true;
     this.letters.forEach(function (ltr) {
       if (ltr.letter === guessedLetter) {
         ltr.appear = true;
@@ -39,7 +56,7 @@ function Word (word) {
 
   this.wordShow = function () {
     let display = '';
-    selection.letters.forEach(function (ltr) {
+    this.letters.forEach(function (ltr) {
       let currentLetter = ltr.letterShow();
       display += currentLetter;
     });
@@ -47,6 +64,6 @@ function Word (word) {
   };
 };
 
-var wordBank = ['PUNISHER', 'DAREDEVIL', 'JESSICA JONES', 'LUKE CAGE', 'IRON FIST', 'DEFENDERS', 'ELEKTRA', 'KINGPIN'];
+
 
 module.exports = Word;

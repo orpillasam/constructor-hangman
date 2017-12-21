@@ -3,6 +3,7 @@ var Letter = function (Letter) {
   this.letter = letter;
   this.show = false;
 
+  //displays letter or _ if it is in the word
   this.displayletter = function () {
     if (this.letter === ' ') {
       this.appear = true;
