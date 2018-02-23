@@ -1,19 +1,27 @@
-// Stores letters
-var Letter = function (Letter) {
-  this.letter = letter;
-  this.show = false;
 
-  //displays letter or _ if it is in the word
-  this.displayletter = function () {
-    if (this.letter === ' ') {
-      this.appear = true;
-      return ' ';
-    } else if (this.appear === false) {
-      return '_';
-    } else {
-      return this.letter;
-    };
-  };
+function Letter(char) {
+  
+  this.visible = !/[a-z1-9]/i.test(char);
+
+  this.char = char;
+}
+
+Letter.prototype.toString = function() {
+  if (this.visible === true) {
+    return this.char;
+  }
+  return "_";
+};
+Letter.prototype.getSolution = function() {
+  return this.char;
 };
 
+Letter.prototype.guess = function(charGuess) {
+  if (charGuess.toUpperCase() === this.char.toUpperCase()) {
+    this.visible = true;
+    return true;
+  }
+
+  return false;
+};
 module.exports = Letter;
